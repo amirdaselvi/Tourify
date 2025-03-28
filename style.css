@@ -14,7 +14,7 @@
     transition: 0.3s ease-in-out;
 }
 
-/* 🎯 Navbar Container */
+
 .container {
     display: flex;
     align-items: center;
@@ -23,7 +23,7 @@
     margin: 0 auto;
 }
 
-/* 🔥 Logo & Branding */
+
 .navbar-brand {
     display: flex;
     align-items: center;
@@ -55,7 +55,7 @@
     position: relative;
 }
 
-/* 🌈 Hover Effects */
+
 .nav-links a {
     text-decoration: none;
     color: white;
@@ -66,14 +66,14 @@
     border-radius: 5px;
 }
 
-/* 🔥 Background Change on Hover */
+
 .nav-links a:hover {
     background: rgb(0, 2, 148);
     color: #ffffff;
     box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.6);
 }
 
-/* 🎭 Animated Button */
+
 .btn-login {
     background: white;
     color: #003973;
@@ -88,14 +88,13 @@
     overflow: hidden;
 }
 
-/* 🎇 Button Hover Effect */
+
 .btn-login:hover {
     background: #003973;
     color: white;
     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
 }
 
-/* 📱 Responsive */
 @media (max-width: 991px) {
     .container {
         flex-direction: column;
@@ -131,7 +130,7 @@
     text-align: center;
 }
 
-/* 📌 Home Section Cards */
+
 
 
 .home-card {
@@ -154,7 +153,7 @@
     transition: transform 0.4s ease-in-out;
 }
 
-/* ✨ Titles */
+
 .card-title {
     font-size: 22px;
     color: rgb(78, 227, 205);
@@ -169,7 +168,7 @@
     transition: color 0.4s ease-in-out;
 }
 
-/* 🎭 Hover Effects */
+
 .home-card:hover {
     transform: scale(1.05);
     box-shadow: 0px 10px 25px rgba(78, 227, 205, 0.5);
@@ -187,7 +186,6 @@
     color: rgb(61, 220, 248);
 }
 
-/* 🌟 Fade-in Animation */
 @keyframes fadeInUp {
     from {
         opacity: 0;
