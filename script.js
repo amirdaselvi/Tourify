@@ -1,76 +1,61 @@
+function addPackageToCart(btn) {
+  const name = btn.dataset.name;
+  const price = Number(btn.dataset.price);
+  const persons = btn.dataset.persons;
+
+  let cart = JSON.parse(localStorage.getItem("tourCart")) || [];
+  cart.push({ name, price, persons });
+  localStorage.setItem("tourCart", JSON.stringify(cart));
+
+  alert("🛫 " + name + " has been added to your cart!");
+  location.href = "cart.html"; // redirect in same tab
+}
+
+// Remove package from cart
+function removePkg(i) {
+  let cart = JSON.parse(localStorage.getItem("tourCart")) || [];
+  cart.splice(i, 1);
+  localStorage.setItem("tourCart", JSON.stringify(cart));
+  renderCart();
+}
+
+// Render cart items + calculate bill
+function renderCart() {
+  let cart = JSON.parse(localStorage.getItem("tourCart")) || [];
+  let total = 0;
+
+  const box = document.getElementById("cart-items");
+  const bill = document.getElementById("totalBill");
+
+  if (!box || !bill) return; // prevents errors if IDs not found
+
+  box.innerHTML = "";
+
+  cart.forEach((pkg, i) => {
+    total += pkg.price;
+    box.innerHTML += `
+      <div class="cart-item">
+        <b>${pkg.name}</b><br>
+        👥 ${pkg.persons} Persons | 💰 $${pkg.price}
+        <button class="remove-btn" onclick="removePkg(${i})">Remove</button>
+      </div>`;
+  });
+
+  bill.innerHTML = " Total Amount: $" + total;
+}
+function openAbout(){
+    window.open('about.html','_blank');
+}
+function goHomeSite() {
+    window.location.href = "index.html";
+}
+
+// When DOM loads, display cart
 document.addEventListener("DOMContentLoaded", function () {
-    const section = document.getElementById("Discover");
-    const cards = document.querySelectorAll(".travel-card");
-    
-    function revealCards() {
-        const sectionPosition = section.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.2;
-        
-        if (sectionPosition < screenPosition) {
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = "1";
-                    card.style.transform = "translateY(0)";
-                }, index * 200);
-            });
-            window.removeEventListener("scroll", revealCards);
-        }
-    }
-    
-    window.addEventListener("scroll", revealCards);
+  renderCart();
 });
-document.addEventListener("DOMContentLoaded", function () {
-    // Select all "Book package" buttons
-    const bookButtons = document.querySelectorAll(".book-package");
 
-    // Add click event to each button
-    bookButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            const packageName = button.getAttribute("data-package");
-            alert(`${packageName} has been added to your cart!`);
-            
-            // Add package to cart (assuming a cart array)
-            addToCart(packageName);
-        });
-    });
 
-    // Function to handle cart logic
-    function addToCart(packageName) {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        cart.push(packageName);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        console.log("Cart updated:", cart);
-    }
-});
-function openBookingPage() {
-    window.open('book.html', '_blank', 'width=800,height=600');
-  }
-  function opencartpage() {
-    window.open('cart.html', '_blank', 'width=800,height=600');
-  }
-/*document.addEventListener("DOMContentLoaded", function () {
-    const bookButtons = document.querySelectorAll(".book-package");
-    const popupContainer = document.getElementById("popup-container");
-    const popupTitle = document.getElementById("popup-title");
-    const popupPrice = document.getElementById("popup-price");
-    const closePopup = document.getElementById("close-popup");
-
-    bookButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            const packageName = this.getAttribute("data-package"); // Get the package name
-            popupTitle.textContent = `Package: ${packageName}`;
-            popupPrice.textContent = "Price: $299";
-            popupContainer.style.display = "flex";
-        });
-    });
-
-    closePopup.addEventListener("click", function () {
-        popupContainer.style.display = "none";
-    });
-
-    popupContainer.addEventListener("click", function (event) {
-        if (event.target === popupContainer) {
-            popupContainer.style.display = "none";
-        }
-    });
-});*/
+window.onbeforeunload = () => {
+  location.href = "index.html"; 
+};
