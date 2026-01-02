@@ -7,7 +7,7 @@ function addPackageToCart(btn) {
   cart.push({ name, price, persons });
   localStorage.setItem("tourCart", JSON.stringify(cart));
 
-  alert("🛫 " + name + " has been added to your cart!");
+  alert( name + " has been added to your cart!");
   location.href = "cart.html"; // redirect in same tab
 }
 
@@ -36,7 +36,7 @@ function renderCart() {
     box.innerHTML += `
       <div class="cart-item">
         <b>${pkg.name}</b><br>
-        👥 ${pkg.persons} Persons | 💰 $${pkg.price}
+        ${pkg.persons} Persons |  $${pkg.price}
         <button class="remove-btn" onclick="removePkg(${i})">Remove</button>
       </div>`;
   });
@@ -59,3 +59,4 @@ document.addEventListener("DOMContentLoaded", function () {
 window.onbeforeunload = () => {
   location.href = "index.html"; 
 };
+
