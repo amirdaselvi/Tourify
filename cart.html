@@ -1,89 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart - Confirm Your Booking</title>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, #88c2db, #221499);
-            color: white;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        .cart-container {
-            width: 40%;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-            margin-top: 50px;
-            color: black;
-        }
-        .cart-item {
-            padding: 15px;
-            border-bottom: 2px solid #ddd;
-            font-size: 18px;
-        }
-        input, select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .checkout-btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background: #e7cd4f;
-            color: white;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 18px;
-            transition: background 0.3s;
-        }
-        .checkout-btn:hover {
-            background: #e04c54;
-        }
-    </style>
-</head>
-<body>
-    <div class="cart-container">
-        <h2>Confirm Your Booking</h2>
-        <div id="cart-items">
-            <!-- Selected package will be displayed here -->
-        </div>
-        
-        <form id="booking-form">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" placeholder="Enter your name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
-            
-            <label for="date">Date of Booking:</label>
-            <input type="date" id="date" required>
-            
-            <label for="guests">Number of Guests:</label>
-            <select id="guests">
-                <option value="1">1 Person</option>
-                <option value="2" selected>2 Persons</option>
-                <option value="3">3 Persons</option>
-                <option value="4">4 Persons</option>
-                <option value="5">5+ Persons</option>
-            </select>
-            
-            <button type="submit" class="checkout-btn">Proceed to Payment</button>
-        </form>
-    </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✈️ Tourify Cart</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.bundle.min.js"></script>
 
-    
-    
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #e0f7fa, #90caf9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+.cart-container {
+    width: 85%;
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform: translateY(30px);}
+    to {opacity:1; transform: translateY(0);}
+}
+
+.cart-title {
+    font-size: 38px;
+    font-weight: 800;
+    color: #0a2472;
+    margin-bottom: 30px;
+}
+
+.cart-card {
+    background: white;
+    border-radius: 20px;
+    padding: 18px;
+    margin: 18px auto;
+    width: 92%;
+    box-shadow: 0px 6px 26px rgba(0, 81, 255, 0.18);
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.cart-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.45);
+}
+
+.cart-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.cart-info h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0a2472;
+}
+
+.cart-info p {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e40af;
+    margin: 4px 0;
+}
+
+.remove-btn {
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 7px 22px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.remove-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255,77,109,0.6);
+}
+
+.bill-box {
+    background: white;
+    padding: 26px;
+    border-radius: 24px;
+    width: 70%;
+    margin: 40px auto;
+    box-shadow: 0 0 35px rgba(0, 81, 255, 0.2);
+}
+
+.total-bill {
+    font-size: 26px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+    padding: 14px;
+    border-radius: 14px;
+    color: white;
+    margin-top: 12px;
+}
+
+.btn-group {
+    margin-top: 20px;
+}
+
+.go-back-btn, .website-btn {
+    padding: 10px 26px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 8px;
+}
+
+.go-back-btn {
+    background: #0a2472;
+    color: white;
+}
+
+.website-btn {
+    background: linear-gradient(135deg, #2563eb, #1fc8db);
+    color: white;
+}
+
+.go-back-btn:hover, .website-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 20px rgba(10,36,114,0.5);
+}
+</style>
+</head>
+
+<body>
+
+<div class="cart-container">
+    <h2 class="cart-title">EXPLORE YOUR TRIP CART</h2>
+    <div id="cartItems"></div>
+
+    <div class="bill-box">
+        <h3 style="font-weight:800;color:#0a2472;">Confirm Booking</h3>
+
+        <form id="booking-form" onsubmit="proceedPay(); return false;">
+            <input type="text" id="userName" placeholder="Enter Name *" required>
+            <input type="email" id="userMail" placeholder="Enter Email *" required>
+            <input type="date" id="bookDate" required>
+            <button type="submit" class="total-bill-btn">Confirm Booking</button>
+        </form>
+
+        <div class="total-bill">Total Amount: Rs <span id="totalBill">0</span></div>
+
+        <div class="btn-group">
+           
+            <button class="website-btn" type="button" onclick="goHomeSite()">Back to Website</button>
+        </div>
+    </div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("tourCart")) || [];
+
+function renderCart() {
+    const box = document.getElementById("cartItems");
+    const billSpan = document.getElementById("totalBill");
+    box.innerHTML = "";
+    let total = 0;
+
+    cart.forEach(function(pkg, i) {
+        total += pkg.price;
+
+        const card = document.createElement("div");
+        card.className = "cart-card";
+        card.innerHTML =
+
+          "<div class='cart-info'>" +
+            "<h4>" + pkg.name + "</h4>" +
+            "<p> For " + pkg.persons + " Traveler(s)</p>" +
+            "<p> Cost: Rs " + pkg.price + "</p>" +
+          "</div>" +
+          "<button class='remove-btn' onclick='removePackage(" + i + ")'>Remove</button>";
+
+        box.appendChild(card);
+    });
+
+    billSpan.innerText = total;
+}
+
+function removePackage(i) {
+    cart.splice(i, 1);
+    localStorage.setItem("tourCart", JSON.stringify(cart));
+    location.reload();
+}
+function goBackSite() {
+    history.back();
+}
+
+function goHomeSite() {
+    location.href = "index.html";
+}
+
+function proceedPay() {
+    const name = document.getElementById("userName").value;
+    const email = document.getElementById("userMail").value;
+    const date = document.getElementById("bookDate").value;
+    const totalBill = document.getElementById("totalBill").innerText;
+
+    if(name == "" || email == "" || date == "") {
+        alert("Please fill all booking details!");
+        return;
+    }
+
+    alert(
+        "Booking Confirmed!\n\n" +
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Booking Date: " + date + "\n" +
+        "Total Bill: Rs " + totalBill + "\n\n" +
+        "Thank you for choosing TOURIFY !!"
+    );
+}
+
+window.addEventListener("DOMContentLoaded", renderCart);
+
+
+</script>
+
 </body>
 </html>
+
