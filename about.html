@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Tourify</title>
+    <link rel="stylesheet" href="about.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+    <div class="logo">
+        <img src="images/logo-removebg-preview.png" alt="Tourify Logo">
+        <h1>TOURIFY</h1>
+    </div>
+
+      <button class="website-btn" onclick="goHomeSite()">Back to Home</button>
+   </nav>
+
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>Welcome to <b>Tourify</b>, your trusted travel partner! We believe in creating **memorable experiences** through seamless and customized trips.</p>
+            <p>With over <b>10 years of experience</b>, we have curated <b>50,000+ handcrafted experiences</b> worldwide, ensuring top-notch travel services that meet your expectations.</p>
+            <p>Our team of travel experts ensures a hassle-free experience by combining the best destinations, accommodations, and activities.**</p>
+            <p>Join us on an adventure and explore the world with confidence and ease!</p>
+        </div>
+        <img src="images/Backwaters.jpg" alt="Travel Image" class="about-img">
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose">
+        <h2>Why Choose Tourify?</h2>
+        <div class="features">
+            <div class="feature-card">
+             
+                <h3>Expert Guidance</h3>
+                <p>Our travel experts help you craft the perfect itinerary.</p>
+            </div>
+            <div class="feature-card">
+              
+                <h3>Tailor-Made Trips</h3>
+                <p>Every trip is personalized to your preferences.</p>
+            </div>
+            <div class="feature-card">
+               
+                <h3>100% Satisfaction</h3>
+                <p>We ensure a stress-free and delightful travel experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Tourify. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+
+<style>
+    /* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right,#047e99, #94d3e0);
+    color: #333;
+}
+
+/* Navbar 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 15px 50px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}*/
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #003973, #E5E5BE); /* Blue to Cream */
+    box-shadow: 0px 4px 10px;
+    padding: 5px 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.navbar .website-btn {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    background:#003973;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 0 15px rgba(37,99,235,0.3);
+}
+
+.navbar .website-btn:hover {
+    transform: translateY(-3px) scale(1.07);
+    background: #1e40af;
+    box-shadow: 0 0 25px rgba(37,99,235,0.6);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo h1 {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.logo img {
+    width: 60px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #003973;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #0056b3;
+}
+
+/* About Section */
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    width: 80%;
+}
+
+.about-content {
+    max-width: 50%;
+}
+
+.about h2 {
+    font-size: 32px;
+    color: #1d0d70;
+    text-transform: uppercase;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.about-img {
+    width: 45%;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.why-choose {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.why-choose h2 {
+    font-size: 28px;
+    color: #005792;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card img {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    color: #003973;
+}
+
+
+footer {
+    background: linear-gradient(90deg, #003973, #E5E5BE); 
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+</style>
